@@ -1,5 +1,3 @@
 {
-  "build": {
-    "command": "nest build --output ./dist"
-  }
+  "buildCommand": "nest build --output ./dist"
 }
