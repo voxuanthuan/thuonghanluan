@@ -21,11 +21,11 @@ export class PrescriptionService {
   }
 
   findAll() {
-    return this.prescriptionModel.find();
+    return this.prescriptionModel.find().populate('medicines.medicine');
   }
 
   findOne(id: string) {
-    return this.prescriptionModel.findById(id);
+    return this.prescriptionModel.findById(id).populate('medicines.medicine');
   }
 
   update(id: string, updatePrescriptionDto: UpdatePrescriptionDto) {

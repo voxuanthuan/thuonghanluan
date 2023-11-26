@@ -31,7 +31,20 @@ export class Prescription extends Document {
     };
   }>;
 
-  // Additional prescription details can be added here.
+  @Prop({ type: String })
+  description: string;
+
+  @Prop({ type: String })
+  usage: string;
+
+  @Prop({ type: String })
+  indications: string;
+
+  @Prop({ type: String })
+  contraindications: string;
+
+  @Prop({ type: String })
+  side_effects: string;
 
   // Timestamps for creation and update
   @Prop({ default: Date.now })
