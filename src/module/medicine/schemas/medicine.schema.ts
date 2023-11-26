@@ -24,6 +24,9 @@ export class Medicine extends Document {
 
   @Prop({ default: Date.now })
   updatedAt: Date;
+
+  @Prop({ type: Boolean, default: false })
+  deleted: boolean;
 }
 
 export const MedicineSchema = SchemaFactory.createForClass(Medicine);

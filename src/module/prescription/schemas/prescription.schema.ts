@@ -39,6 +39,9 @@ export class Prescription extends Document {
 
   @Prop({ default: Date.now })
   updatedAt: Date;
+
+  @Prop({ type: Boolean, default: false })
+  deleted: boolean;
 }
 
 export const PrescriptionSchema = SchemaFactory.createForClass(Prescription);

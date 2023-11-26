@@ -21,11 +21,11 @@ export class PrescriptionService {
   }
 
   findAll() {
-    this.prescriptionModel.find();
+    return this.prescriptionModel.find();
   }
 
   findOne(id: number) {
-    return `This action returns a #${id} prescription`;
+    return this.prescriptionModel.findById(id);
   }
 
   update(id: number, updatePrescriptionDto: UpdatePrescriptionDto) {
@@ -33,6 +33,6 @@ export class PrescriptionService {
   }
 
   remove(id: number) {
-    return `This action removes a #${id} prescription`;
+    return this.prescriptionModel.findByIdAndRemove(id);
   }
 }

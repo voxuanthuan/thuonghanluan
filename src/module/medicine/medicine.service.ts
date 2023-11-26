@@ -16,11 +16,11 @@ export class MedicineService {
   }
 
   findAll() {
-    return this.medicineModel.find();
+    return this.medicineModel.find({ deleted: false });
   }
 
   findOne(id: number) {
-    return `This action returns a #${id} medicine`;
+    return this.medicineModel.findById(id);
   }
 
   update(id: number, updateMedicineDto: UpdateMedicineDto) {
@@ -28,6 +28,8 @@ export class MedicineService {
   }
 
   remove(id: number) {
-    return `This action removes a #${id} medicine`;
+    return this.medicineModel.findByIdAndUpdate(id, {
+      deleted: false,
+    });
   }
 }
