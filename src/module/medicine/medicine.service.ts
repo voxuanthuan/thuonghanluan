@@ -19,15 +19,15 @@ export class MedicineService {
     return this.medicineModel.find({ deleted: false });
   }
 
-  findOne(id: number) {
+  findOne(id: string) {
     return this.medicineModel.findById(id);
   }
 
-  update(id: number, updateMedicineDto: UpdateMedicineDto) {
+  update(id: string, updateMedicineDto: UpdateMedicineDto) {
     return this.medicineModel.findByIdAndUpdate(id, updateMedicineDto);
   }
 
-  remove(id: number) {
+  remove(id: string) {
     return this.medicineModel.findByIdAndUpdate(id, {
       deleted: false,
     });

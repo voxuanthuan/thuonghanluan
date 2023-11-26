@@ -24,15 +24,15 @@ export class PrescriptionService {
     return this.prescriptionModel.find();
   }
 
-  findOne(id: number) {
+  findOne(id: string) {
     return this.prescriptionModel.findById(id);
   }
 
-  update(id: number, updatePrescriptionDto: UpdatePrescriptionDto) {
+  update(id: string, updatePrescriptionDto: UpdatePrescriptionDto) {
     return this.prescriptionModel.findByIdAndUpdate(id, updatePrescriptionDto);
   }
 
-  remove(id: number) {
+  remove(id: string) {
     return this.prescriptionModel.findByIdAndRemove(id);
   }
 }

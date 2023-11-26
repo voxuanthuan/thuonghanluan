@@ -27,7 +27,7 @@ export class PrescriptionController {
 
   @Get(':id')
   findOne(@Param('id') id: string) {
-    return this.prescriptionService.findOne(+id);
+    return this.prescriptionService.findOne(id);
   }
 
   @Patch(':id')
@@ -35,11 +35,11 @@ export class PrescriptionController {
     @Param('id') id: string,
     @Body() updatePrescriptionDto: UpdatePrescriptionDto,
   ) {
-    return this.prescriptionService.update(+id, updatePrescriptionDto);
+    return this.prescriptionService.update(id, updatePrescriptionDto);
   }
 
   @Delete(':id')
   remove(@Param('id') id: string) {
-    return this.prescriptionService.remove(+id);
+    return this.prescriptionService.remove(id);
   }
 }

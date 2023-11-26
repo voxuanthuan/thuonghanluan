@@ -1,5 +1,5 @@
 export interface Medicine {
-  name: string;
+  id: string;
   dosage: {
     amount: number;
     unit: string;

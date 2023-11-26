@@ -27,7 +27,7 @@ export class MedicineController {
 
   @Get(':id')
   findOne(@Param('id') id: string) {
-    return this.medicineService.findOne(+id);
+    return this.medicineService.findOne(id);
   }
 
   @Patch(':id')
@@ -35,11 +35,11 @@ export class MedicineController {
     @Param('id') id: string,
     @Body() updateMedicineDto: UpdateMedicineDto,
   ) {
-    return this.medicineService.update(+id, updateMedicineDto);
+    return this.medicineService.update(id, updateMedicineDto);
   }
 
   @Delete(':id')
   remove(@Param('id') id: string) {
-    return this.medicineService.remove(+id);
+    return this.medicineService.remove(id);
   }
 }
