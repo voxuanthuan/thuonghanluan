@@ -11,7 +11,7 @@ import { PrescriptionModule } from './module/prescription/prescription.module';
     ConfigModule.forRoot({
       envFilePath: '.env',
     }),
-    MongooseModule.forRoot(process.env.MONGO_URI),
+    MongooseModule.forRoot(process.env.shop_api_mongo_uri),
     MedicineModule,
     PrescriptionModule,
   ],
