@@ -16,7 +16,7 @@ export class MedicineService {
   }
 
   findAll() {
-    return `This action returns all medicine`;
+    return this.medicineModel.find();
   }
 
   findOne(id: number) {
