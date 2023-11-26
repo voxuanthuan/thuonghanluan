@@ -21,7 +21,7 @@ export class PrescriptionService {
   }
 
   findAll() {
-    return `This action returns all prescription`;
+    this.prescriptionModel.find();
   }
 
   findOne(id: number) {
