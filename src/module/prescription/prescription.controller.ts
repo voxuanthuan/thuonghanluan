@@ -6,6 +6,7 @@ import {
   Patch,
   Param,
   Delete,
+  Query,
 } from '@nestjs/common';
 import { PrescriptionService } from './prescription.service';
 import { CreatePrescriptionDto } from './dto/create-prescription.dto';
@@ -21,8 +22,8 @@ export class PrescriptionController {
   }
 
   @Get()
-  findAll() {
-    return this.prescriptionService.findAll();
+  findAll(@Query() query: string) {
+    return this.prescriptionService.findAll(query);
   }
 
   @Get(':id')

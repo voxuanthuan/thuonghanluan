@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { BadRequestException, Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 import { CreatePrescriptionDto } from './dto/create-prescription.dto';
@@ -14,14 +14,22 @@ export class PrescriptionService {
     @InjectModel(Prescription.name)
     private readonly prescriptionModel: Model<Prescription>,
   ) {}
-  create(
+  async create(
     createPrescriptionDto: CreatePrescriptionDto,
   ): Promise<PrescriptionDocument> {
+    const prescriptExist = await this.prescriptionModel.findOne({
+      name: createPrescriptionDto.name,
+    });
+    if (prescriptExist) {
+      throw new BadRequestException('Tên bài thuốc đã tồn tại!');
+    }
     return this.prescriptionModel.create(createPrescriptionDto);
   }
 
-  findAll() {
-    return this.prescriptionModel.find().populate('medicines.medicine');
+  findAll(query) {
+    return this.prescriptionModel
+      .find({ name: { $regex: `^${query.name}` } })
+      .populate('medicines.medicine');
   }
 
   findOne(id: string) {
