@@ -14,7 +14,7 @@ export class Prescription extends Document {
   @Prop({
     type: [
       {
-        medicine: { type: Types.ObjectId, ref: 'Medicine' },
+        medicine: String,
         dosage: {
           amount: Number,
           unit: String,
@@ -24,7 +24,7 @@ export class Prescription extends Document {
     required: true,
   })
   medicines: Array<{
-    medicine: Types.ObjectId | Medicine;
+    medicine: string;
     dosage: {
       amount: number;
       unit: string;
